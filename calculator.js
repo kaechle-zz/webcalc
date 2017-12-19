@@ -16,13 +16,14 @@ function numbers(value) {
 		clearButton.innerHTML = 'C';
 	} else {
 		if (addedOperator) {
-			output = input;
+			output += input;
 			input = value;
 			displayHTML(input);
 			addedOperator = false;
 		} else {
 			input += value;
 			displayHTML(input);
+			addedOperator = false;
 		}
 	}
 }
@@ -51,24 +52,20 @@ function addOperator(value) {
 		input += value;
 		addedOperator = true;
 	};
+
 }
 
 function equals() {
 	answer = math.eval(output.concat(input));
+	output = answer;
+	input = '0';
 	displayHTML(answer);
-	addedOperator = false;
 }
 
 function funcClear() {
 	var clearToggle = true;
 	clearButton.innerHTML = 'AC';
-	if (clearToggle) {
-		input = '0';
-		clearToggle = false;
-	} else {
-		output = '0';
-		clearToggle = true;
-	}
+	input, output = '0';
 	displayHTML(input);
 	displayFontSize(50);
 }
