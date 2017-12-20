@@ -8,9 +8,8 @@ var clearButton = document.getElementById('AC');
 
 displayHTML(input);
 
-
 function numbers(value) {
-	if (input === '0') {
+	if (input === '0' && output === '0') {
 		input = value;
 		displayHTML(input);
 		clearButton.innerHTML = 'C';
@@ -63,9 +62,9 @@ function equals() {
 }
 
 function funcClear() {
-	var clearToggle = true;
 	clearButton.innerHTML = 'AC';
-	input, output = '0';
+	input = '0';
+	output = '0';
 	displayHTML(input);
 	displayFontSize(50);
 }
@@ -81,6 +80,10 @@ function funcNegPos() {
 }
 
 function funcPercent() {
-	input = math.eval(input * 0.01);
+	if (input === '0') {
+		input = math.eval(answer *0.01);
+	} else {
+		input = math.eval(input * 0.01);
+	}
 	displayHTML(input);
 }
