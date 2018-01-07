@@ -50,8 +50,7 @@ function addOperator(value) {
 	} else {
 		input += value;
 		addedOperator = true;
-	};
-
+	}
 }
 
 function equals() {
@@ -81,7 +80,7 @@ function funcNegPos() {
 
 function funcPercent() {
 	if (input === '0') {
-		input = math.eval(answer *0.01);
+		input = math.eval(answer * 0.01);
 	} else {
 		input = math.eval(input * 0.01);
 	}
